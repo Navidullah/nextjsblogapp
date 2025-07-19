@@ -67,7 +67,7 @@ export default function Footer() {
 
       {/* Copyright */}
       <div className="text-center text-xs text-muted-foreground mt-4">
-        © {new Date().getFullYear()} EchoEmpact. All rights reserved.
+        © {new Date().getFullYear()} BrainSparks. All rights reserved.
       </div>
     </footer>
   );
