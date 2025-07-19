@@ -248,7 +248,7 @@ export default function WritePage() {
   if (!session) return <div>Please log in to write a blog.</div>;
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen wrapper mt-6">
       <Card className="p-6">
         <CardHeader>
           <CardTitle>Write a New Blog</CardTitle>

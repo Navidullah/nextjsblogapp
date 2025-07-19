@@ -202,82 +202,82 @@ const MenuBar = ({ editor }) => {
 
   const Options = [
     {
-      icon: <Heading1 className="size-7" />,
+      icon: <Heading1 className="size-4 md:size-5 xl:size-7" />,
       onClick: () => editor.chain().focus().toggleHeading({ level: 1 }).run(),
       pressed: editor.isActive("heading", { level: 1 }),
     },
     {
-      icon: <Heading2 className="size-7" />,
+      icon: <Heading2 className="size-4 md:size-5 xl:size-7" />,
       onClick: () => editor.chain().focus().toggleHeading({ level: 2 }).run(),
       pressed: editor.isActive("heading", { level: 2 }),
     },
     {
-      icon: <Heading3 className="size-7" />,
+      icon: <Heading3 className="size-4 md:size-5 xl:size-7" />,
       onClick: () => editor.chain().focus().toggleHeading({ level: 3 }).run(),
       pressed: editor.isActive("heading", { level: 3 }),
     },
     {
-      icon: <BsParagraph className="size-7" />,
+      icon: <BsParagraph className="size-4 md:size-5 xl:size-7" />,
       onClick: () => editor.chain().focus().setParagraph().run(),
       pressed: editor.isActive("paragraph"),
     },
     {
-      icon: <Bold className="size-7" />,
+      icon: <Bold className="size-4 md:size-5 xl:size-7" />,
       onClick: () => editor.chain().focus().toggleBold().run(),
       pressed: editor.isActive("bold"),
     },
     {
-      icon: <Italic className="size-7" />,
+      icon: <Italic className="size-4 md:size-5 xl:size-7" />,
       onClick: () => editor.chain().focus().toggleItalic().run(),
       pressed: editor.isActive("italic"),
     },
     {
-      icon: <LucideStrikethrough className="size-7" />,
+      icon: <LucideStrikethrough className="size-4 md:size-5 xl:size-7" />,
       onClick: () => editor.chain().focus().toggleStrike().run(),
       pressed: editor.isActive("strike"),
     },
     {
-      icon: <Highlighter className="size-7" />,
+      icon: <Highlighter className="size-4 md:size-5 xl:size-7" />,
       onClick: () => editor.chain().focus().toggleHighlight().run(),
       pressed: editor.isActive("highlight"),
     },
     {
-      icon: <List className="size-7" />,
+      icon: <List className="size-4 md:size-5 xl:size-7" />,
       onClick: () => editor.chain().focus().toggleBulletList().run(),
       pressed: editor.isActive("bulletList"),
     },
     {
-      icon: <ListOrdered className="size-7" />,
+      icon: <ListOrdered className="size-4 md:size-5 xl:size-7" />,
       onClick: () => editor.chain().focus().toggleOrderedList().run(),
       pressed: editor.isActive("orderedList"),
     },
     {
-      icon: <AlignLeft className="size-7" />,
+      icon: <AlignLeft className="size-4 md:size-5 xl:size-7" />,
       onClick: () => editor.chain().focus().setTextAlign("left").run(),
       pressed: editor.isActive("textAlign", { textAlign: "left" }),
     },
     {
-      icon: <AlignRight className="size-7" />,
+      icon: <AlignRight className="size-4 md:size-5 xl:size-7" />,
       onClick: () => editor.chain().focus().setTextAlign("right").run(),
       pressed: editor.isActive("textAlign", { textAlign: "right" }),
     },
     {
-      icon: <AlignCenter className="size-7" />,
+      icon: <AlignCenter className="size-4 md:size-5 xl:size-7" />,
       onClick: () => editor.chain().focus().setTextAlign("center").run(),
       pressed: editor.isActive("textAlign", { textAlign: "center" }),
     },
     {
-      icon: <AlignJustify className="size-7" />,
+      icon: <AlignJustify className="size-4 md:size-5 xl:size-7" />,
       onClick: () => editor.chain().focus().setTextAlign("justify").run(),
       pressed: editor.isActive("textAlign", { textAlign: "justify" }),
     },
     {
-      icon: <Quote className="size-7" />,
+      icon: <Quote className="size-4 md:size-5 xl:size-7" />,
       onClick: () => editor.chain().focus().toggleBlockquote().run(),
       pressed: editor.isActive("blockquote"),
     },
     {
-      icon: <ImageIcon className="size-7" />,
+      icon: <ImageIcon className="size-4 md:size-5 xl:size-7" />,
       onClick: handleImageClick,
       pressed: false,
     },
