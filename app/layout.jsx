@@ -22,8 +22,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "MindSparks",
-  description: "mind sparks",
+  title: "BrainSparks",
+  description: "Brain sparks",
 };
 
 export default function RootLayout({ children }) {
