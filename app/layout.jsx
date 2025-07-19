@@ -24,6 +24,9 @@ const geistMono = Geist_Mono({
 export const metadata = {
   title: "BrainSparks",
   description: "Brain sparks",
+  icons: {
+    icon: "/favicon.png", // or "/favicon.ico"
+  },
 };
 
 export default function RootLayout({ children }) {
