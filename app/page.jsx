@@ -8,7 +8,7 @@ export default async function HomePage() {
   const blogs = await res.json();
 
   return (
-    <main className=" py-10">
+    <main className=" wrapper py-10">
       <h1 className="text-2xl font-bold mb-6">Latest Blogs</h1>
       <BlogList blogs={blogs} />
     </main>

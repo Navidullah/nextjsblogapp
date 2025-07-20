@@ -6,7 +6,7 @@ import { FaGithub, FaTwitter, FaLinkedin } from "react-icons/fa";
 export default function Footer() {
   return (
     <footer className="bg-background border-t dark:border-muted p-6">
-      <div className="wrapper flex flex-col sm:flex-row justify-between items-center gap-4">
+      <div className=" flex flex-col sm:flex-row justify-between items-center gap-4">
         {/* Logo or Site Name */}
         <div className="  sm:w-auto mb-2 sm:mb-0">
           <Link href="/" className="flex items-center">

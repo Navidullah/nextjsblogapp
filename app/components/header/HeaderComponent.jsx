@@ -200,7 +200,7 @@ export default function Header() {
 
   return (
     <header className="fixed top-0 w-full z-50 py-3 bg-white/70 dark:bg-gray-900/70 backdrop-blur-md border-b border-black/10 dark:border-gray-700/30">
-      <div className="wrapper flex flex-col sm:flex-row items-center justify-between gap-2 sm:gap-6 px-2 sm:px-6 h-auto sm:h-16">
+      <div className=" flex flex-col sm:flex-row items-center justify-between gap-2 sm:gap-6 px-2 sm:px-6 h-auto sm:h-16">
         {/* Logo */}
         <div className="flex items-center w-full sm:w-auto mb-2 sm:mb-0">
           <Link href="/" className="flex items-center">
