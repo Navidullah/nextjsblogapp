@@ -11,6 +11,7 @@ import { Placeholder } from "@tiptap/extensions";
 import React from "react";
 import MenuBar from "./MenuBar";
 import LoadingSpinner from "@/components/ui/LoadingSpinner";
+import Link from "@tiptap/extension-link";
 
 const TiptapEditor = ({ value, onChange }) => {
   const editor = useEditor({
@@ -21,6 +22,13 @@ const TiptapEditor = ({ value, onChange }) => {
       TextStyle,
       Blockquote,
       Image,
+      Link.configure({
+        HTMLAttributes: {
+          class: "text-blue-500 font-semibold hover:underline",
+        },
+        openOnClick: false, // disable opening in new tab
+        linkOnPaste: false, // optional: disable auto-links from pasted text
+      }),
       TextAlign.configure({
         types: ["heading", "paragraph"],
       }),

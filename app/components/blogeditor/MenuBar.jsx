@@ -162,10 +162,12 @@ import {
   Highlighter,
   ImageIcon,
   Italic,
+  LinkIcon,
   List,
   ListOrdered,
   LucideStrikethrough,
   Quote,
+  UnlinkIcon,
 } from "lucide-react";
 import { BsParagraph } from "react-icons/bs";
 import React, { useRef } from "react";
@@ -174,6 +176,7 @@ import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { storage } from "@/lib/firebase"; // Your firebase config
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Link from "@tiptap/extension-link";
 
 const MenuBar = ({ editor }) => {
   if (!editor) return null;
@@ -279,6 +282,29 @@ const MenuBar = ({ editor }) => {
     {
       icon: <ImageIcon className="size-4 md:size-5 xl:size-7" />,
       onClick: handleImageClick,
+      pressed: false,
+    },
+    {
+      icon: <LinkIcon className="size-4 md:size-5 xl:size-7" />, // You can use lucide-react's Link icon
+      onClick: () => {
+        const url = prompt("Enter internal path (e.g., /blog/my-post):");
+        if (url && url.startsWith("/")) {
+          editor
+            .chain()
+            .focus()
+            .extendMarkRange("link")
+            .setLink({ href: url })
+            .run();
+        } else {
+          alert("Only internal links allowed (start with '/')");
+        }
+      },
+      pressed: editor.isActive("link"),
+    },
+
+    {
+      icon: <UnlinkIcon className="size-4 md:size-5 xl:size-7" />,
+      onClick: () => editor.chain().focus().unsetLink().run(),
       pressed: false,
     },
   ];
