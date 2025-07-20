@@ -189,6 +189,14 @@ export default function WritePage() {
     setImage(file);
     if (file) setPreview(URL.createObjectURL(file));
   };
+  const handleFileUpload = (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+
+    toast.info("Uploading file...");
+
+    // handle .docx or .pdf file logic here
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -256,9 +264,30 @@ export default function WritePage() {
         upload your blog.
       </h2>
       <Card className="p-6">
-        <CardHeader>
-          <CardTitle>Write a New Blog</CardTitle>
+        <CardHeader className="flex flex-wrap gap-4 items-center justify-between">
+          <div className="flex items-center gap-2">
+            <CardTitle>Write a New Blog</CardTitle>
+            <span className="text-gray-500 dark:text-gray-400 text-sm">or</span>
+            <div>
+              <input
+                type="file"
+                id="docUploader"
+                accept=".pdf,.docx"
+                onChange={handleFileUpload}
+                className="hidden"
+              />
+              <Button
+                type="button"
+                variant="outline"
+                size="sm"
+                onClick={() => document.getElementById("docUploader").click()}
+              >
+                📄 Upload PDF/Word
+              </Button>
+            </div>
+          </div>
         </CardHeader>
+
         <CardContent>
           <form onSubmit={handleSubmit} className="space-y-4">
             <Input
