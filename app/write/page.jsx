@@ -139,7 +139,7 @@ export default function WritePage() {
 "use client";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import dynamic from "next/dynamic";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -183,6 +183,8 @@ export default function WritePage() {
   const [image, setImage] = useState(null);
   const [preview, setPreview] = useState("");
   const [uploading, setUploading] = useState(false);
+  const [uploadedFileName, setUploadedFileName] = useState("");
+  const editorRef = useRef(null); // For auto-scrolling to editor
 
   const handleMainImage = (e) => {
     const file = e.target.files[0];
