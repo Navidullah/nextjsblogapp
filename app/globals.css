@@ -122,6 +122,15 @@
     @apply bg-background text-foreground;
   }
   .wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    /*margin-left: auto;
+  margin-right: auto;*/
+    padding-left: 1rem;
+    padding-right: 1rem;
+    width: 100%;
+  }
+  .blogwrapper {
     max-width: 800px;
     margin: 0 auto;
     /*margin-left: auto;

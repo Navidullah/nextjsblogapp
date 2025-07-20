@@ -20,7 +20,7 @@ export default async function SingleBlogPage(props) {
   const blog = await res.json();
 
   return (
-    <div className="wrapper py-12 px-4">
+    <div className="blogwrapper py-12 px-4">
       {/* Edit button for blog */}
       <EditButton blog={blog} />
       {/* Blog title */}
