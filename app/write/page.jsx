@@ -188,7 +188,7 @@ export default function WritePage() {
   const [image, setImage] = useState(null);
   const [preview, setPreview] = useState("");
   const [uploading, setUploading] = useState(false);
-  const [uploadedFileName, setUploadedFileName] = useState("");
+
   const editorRef = useRef(null); // For auto-scrolling to editor
 
   const handleMainImage = (e) => {
@@ -311,19 +311,7 @@ export default function WritePage() {
       </h2>
       <Card className="p-6">
         <CardHeader className="flex flex-wrap gap-4 items-center justify-between">
-          <div className="flex items-center gap-2">
-            <CardTitle>Write a New Blog</CardTitle>
-            <span className="text-gray-500 dark:text-gray-400 text-sm">or</span>
-            <DocxUploader
-              onContentInsert={(html) => setDescription(html)}
-              setFileName={setUploadedFileName}
-            />
-          </div>
-          {uploadedFileName && (
-            <p className="text-sm text-muted-foreground mt-1">
-              Selected: <span className="font-medium">{uploadedFileName}</span>
-            </p>
-          )}
+          <CardTitle>Write a New Blog</CardTitle>
         </CardHeader>
 
         <CardContent>
