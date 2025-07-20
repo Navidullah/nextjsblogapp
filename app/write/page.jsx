@@ -172,6 +172,11 @@ const TiptapEditor = dynamic(
   () => import("@/app/components/blogeditor/TiptapEditor"),
   { ssr: false }
 );
+/*
+const DocxUploader = dynamic(
+  () => import("../components/wordfile/DocxUploader"),
+  { ssr: false }
+);*/
 
 export default function WritePage() {
   const { data: session, status } = useSession();
@@ -191,7 +196,7 @@ export default function WritePage() {
     setImage(file);
     if (file) setPreview(URL.createObjectURL(file));
   };
-
+  /*
   const handleFileUpload = (e) => {
     const file = e.target.files[0];
     if (!file) return;
@@ -221,13 +226,14 @@ export default function WritePage() {
           });
         }, 200);
       } catch (err) {
+        console.error("DOCX processing error:", err);
         toast.error("Failed to process Word file.");
       }
     };
     reader.readAsArrayBuffer(file);
   };
 
-  /*
+  
   const handleFileUpload = (e) => {
     const file = e.target.files[0];
     if (!file) return;
@@ -308,24 +314,16 @@ export default function WritePage() {
           <div className="flex items-center gap-2">
             <CardTitle>Write a New Blog</CardTitle>
             <span className="text-gray-500 dark:text-gray-400 text-sm">or</span>
-            <div>
-              <input
-                type="file"
-                id="docUploader"
-                accept=".docx"
-                onChange={handleFileUpload}
-                className="hidden"
-              />
-              <Button
-                type="button"
-                variant="outline"
-                size="sm"
-                onClick={() => document.getElementById("docUploader").click()}
-              >
-                📄 Upload Word File
-              </Button>
-            </div>
+            <DocxUploader
+              onContentInsert={(html) => setDescription(html)}
+              setFileName={setUploadedFileName}
+            />
           </div>
+          {uploadedFileName && (
+            <p className="text-sm text-muted-foreground mt-1">
+              Selected: <span className="font-medium">{uploadedFileName}</span>
+            </p>
+          )}
         </CardHeader>
 
         <CardContent>
@@ -384,7 +382,9 @@ export default function WritePage() {
               )}
             </div>
 
-            <TiptapEditor value={description} onChange={setDescription} />
+            <div id="editor-ref">
+              <TiptapEditor value={description} onChange={setDescription} />
+            </div>
             <Button type="submit" className="mt-4" disabled={uploading}>
               {uploading ? "Publishing..." : "Publish"}
             </Button>

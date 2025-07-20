@@ -117,86 +117,103 @@ const MenuBar = ({ editor }) => {
       icon: <Heading1 className="size-7" />,
       onClick: () => editor.chain().focus().toggleHeading({ level: 1 }).run(),
       pressed: editor.isActive("heading", { level: 1 }),
+      name: "",
     },
     {
       icon: <Heading2 className="size-7" />,
       onClick: () => editor.chain().focus().toggleHeading({ level: 2 }).run(),
       pressed: editor.isActive("heading", { level: 2 }),
+      name: "",
     },
     {
       icon: <Heading3 className="size-7" />,
       onClick: () => editor.chain().focus().toggleHeading({ level: 3 }).run(),
       pressed: editor.isActive("heading", { level: 3 }),
+      name: "",
     },
     {
       icon: <BsParagraph className="size-7" />,
       onClick: () => editor.chain().focus().setParagraph().run(),
       pressed: editor.isActive("paragraph"),
+      name: "",
     },
     {
       icon: <Bold className="size-7" />,
       onClick: () => editor.chain().focus().toggleBold().run(),
       pressed: editor.isActive("bold"),
+      name: "",
     },
     {
       icon: <Italic className="size-7" />,
       onClick: () => editor.chain().focus().toggleItalic().run(),
       pressed: editor.isActive("italic"),
+      name: "",
     },
     {
       icon: <LucideStrikethrough className="size-7" />,
       onClick: () => editor.chain().focus().toggleStrike().run(),
       pressed: editor.isActive("strike"),
+      name: "",
     },
     {
       icon: <Highlighter className="size-7" />,
       onClick: () => editor.chain().focus().toggleHighlight().run(),
       pressed: editor.isActive("highlight"),
+      name: "",
     },
     {
       icon: <List className="size-7" />,
       onClick: () => editor.chain().focus().toggleBulletList().run(),
       pressed: editor.isActive("bulletList"),
+      name: "",
     },
     {
       icon: <ListOrdered className="size-7" />,
       onClick: () => editor.chain().focus().toggleOrderedList().run(),
       pressed: editor.isActive("orderedList"),
+      name: "",
     },
     {
       icon: <AlignLeft className="size-7" />,
       onClick: () => editor.chain().focus().setTextAlign("left").run(),
       pressed: editor.isActive("textAlign", { textAlign: "left" }),
+      name: "",
     },
     {
       icon: <AlignRight className="size-7" />,
       onClick: () => editor.chain().focus().setTextAlign("right").run(),
       pressed: editor.isActive("textAlign", { textAlign: "right" }),
+      name: "",
     },
     {
       icon: <AlignCenter className="size-7" />,
       onClick: () => editor.chain().focus().setTextAlign("center").run(),
       pressed: editor.isActive("textAlign", { textAlign: "center" }),
+      name: "",
     },
     {
       icon: <AlignJustify className="size-7" />,
       onClick: () => editor.chain().focus().setTextAlign("justify").run(),
       pressed: editor.isActive("textAlign", { textAlign: "justify" }),
+      name: "",
     },
     {
       icon: <Quote className="size-7" />,
       onClick: () => editor.chain().focus().toggleBlockquote().run(),
       pressed: editor.isActive("blockquote"),
+      name: "",
     },
     {
       icon: <ImageIcon className="size-7" />,
       onClick: () => fileInputRef.current.click(),
       pressed: false,
+      name: "",
     },
     {
       icon: <FileIcon className="size-7" />,
       onClick: () => docInputRef.current.click(),
       pressed: false,
+      name: "Upload file",
     },
     {
       icon: <LinkIcon className="size-7" />,
@@ -214,11 +231,13 @@ const MenuBar = ({ editor }) => {
         }
       },
       pressed: editor.isActive("link"),
+      name: "",
     },
     {
       icon: <UnlinkIcon className="size-7" />,
       onClick: () => editor.chain().focus().unsetLink().run(),
       pressed: false,
+      name: "",
     },
   ];
 
@@ -250,6 +269,7 @@ const MenuBar = ({ editor }) => {
           className={option.pressed ? "bg-gray-300 dark:bg-gray-700" : ""}
         >
           {option.icon}
+          {option.name}
         </Toggle>
       ))}
     </div>
