@@ -189,6 +189,43 @@ export default function WritePage() {
     setImage(file);
     if (file) setPreview(URL.createObjectURL(file));
   };
+
+  const handleFileUpload = (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+
+    if (
+      file.type !==
+      "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+    ) {
+      toast.error("Only .docx files are allowed.");
+      return;
+    }
+
+    setUploadedFileName(file.name);
+    toast.info("Processing Word file...");
+
+    const reader = new FileReader();
+    reader.onload = async () => {
+      try {
+        const arrayBuffer = reader.result;
+        const result = await mammoth.convertToHtml({ arrayBuffer });
+        setDescription(result.value);
+        toast.success("Word document inserted!");
+        setTimeout(() => {
+          editorRef.current?.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+          });
+        }, 200);
+      } catch (err) {
+        toast.error("Failed to process Word file.");
+      }
+    };
+    reader.readAsArrayBuffer(file);
+  };
+
+  /*
   const handleFileUpload = (e) => {
     const file = e.target.files[0];
     if (!file) return;
@@ -197,6 +234,7 @@ export default function WritePage() {
 
     // handle .docx or .pdf file logic here
   };
+  */
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -272,7 +310,7 @@ export default function WritePage() {
               <input
                 type="file"
                 id="docUploader"
-                accept=".pdf,.docx"
+                accept=".docx"
                 onChange={handleFileUpload}
                 className="hidden"
               />
@@ -282,7 +320,7 @@ export default function WritePage() {
                 size="sm"
                 onClick={() => document.getElementById("docUploader").click()}
               >
-                📄 Upload PDF/Word
+                📄 Upload Word File
               </Button>
             </div>
           </div>
