@@ -249,6 +249,12 @@ export default function WritePage() {
 
   return (
     <div className="min-h-screen wrapper mt-6">
+      <h2 className="text-xl pb-2">
+        Note: Dear user if you find difficulty with typing blog in text editor
+        you can also write your blog in Ms word format and then upload your blog
+        in the text editor. just click on the file icon in the menubar and
+        upload your blog.
+      </h2>
       <Card className="p-6">
         <CardHeader>
           <CardTitle>Write a New Blog</CardTitle>
