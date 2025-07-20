@@ -286,13 +286,11 @@ export default function WritePage() {
               </label>
 
               <div className="flex items-center gap-4">
-                <button
-                  type="button"
+                <Button
                   onClick={() => document.getElementById("mainImage").click()}
-                  className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition"
                 >
                   📤 Upload Main Image
-                </button>
+                </Button>
 
                 {image && (
                   <span className="text-sm text-gray-700">{image.name}</span>
