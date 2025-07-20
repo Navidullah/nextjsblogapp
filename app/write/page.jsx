@@ -284,12 +284,6 @@ export default function WritePage() {
               >
                 📄 Upload PDF/Word
               </Button>
-              {uploadedFileName && (
-                <p className="text-sm text-muted-foreground mt-1">
-                  Selected file:{" "}
-                  <span className="font-medium">{uploadedFileName}</span>
-                </p>
-              )}
             </div>
           </div>
         </CardHeader>
