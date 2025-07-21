@@ -266,12 +266,12 @@ export default function Header() {
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <button className="cursor-pointer">
-                  <Avatar className="w-5 h-5 sm:w-10 sm:h-10">
+                  <Avatar className="w-8 h-8 sm:w-10 sm:h-10">
                     {session.user?.image ? (
                       <AvatarImage src={session.user.image} alt="User avatar" />
                     ) : (
                       <AvatarFallback>
-                        <User className="w-5 h-5" />
+                        <User className="w-8 h-8" />
                       </AvatarFallback>
                     )}
                   </Avatar>
