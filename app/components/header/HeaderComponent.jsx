@@ -161,7 +161,13 @@ import { useSession, signIn, signOut } from "next-auth/react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Search, SquarePen, User } from "lucide-react";
+import {
+  LayoutDashboard,
+  LogOutIcon,
+  Search,
+  SquarePen,
+  User,
+} from "lucide-react";
 import { useState } from "react";
 import { ModeToggle } from "./ModeToggle";
 import {
@@ -199,17 +205,17 @@ export default function Header() {
   const isAdmin = session?.user?.role === "admin";
 
   return (
-    <header className="fixed top-0 w-full z-50 py-3 bg-white/70 dark:bg-gray-900/70 backdrop-blur-md border-b border-black/10 dark:border-gray-700/30">
+    <header className="fixed top-0 w-full z-50 py-1 bg-white/70 dark:bg-gray-900/70 backdrop-blur-md border-b border-black/10 dark:border-gray-700/30">
       <div className=" flex flex-col sm:flex-row items-center justify-between gap-2 sm:gap-6 px-2 sm:px-6 h-auto sm:h-16">
         {/* Logo */}
         <div className="flex items-center w-full sm:w-auto mb-2 sm:mb-0">
           <Link href="/" className="flex items-center">
             <Image
               src="/logo.png"
-              width={120}
-              height={120}
+              width={100}
+              height={100}
               alt="Brain-sparks-Logo"
-              className="text-3xl font-serif font-bold tracking-tight"
+              className=" font-serif font-bold tracking-tight"
             />
           </Link>
         </div>
@@ -240,7 +246,7 @@ export default function Header() {
           {/* Write Button */}
           <Button
             variant="outline"
-            className="flex items-center px-2 sm:px-4 py-1 sm:py-2 text-sm sm:text-base"
+            className="flex items-center hover:cursor-pointer"
             onClick={handleWrite}
           >
             <SquarePen className="mr-1" size={18} />
@@ -259,13 +265,13 @@ export default function Header() {
           ) : (
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <button>
-                  <Avatar className="w-8 h-8 sm:w-10 sm:h-10">
+                <button className="cursor-pointer">
+                  <Avatar className="w-5 h-5 sm:w-10 sm:h-10">
                     {session.user?.image ? (
                       <AvatarImage src={session.user.image} alt="User avatar" />
                     ) : (
                       <AvatarFallback>
-                        <User className="w-6 h-6" />
+                        <User className="w-5 h-5" />
                       </AvatarFallback>
                     )}
                   </Avatar>
@@ -281,11 +287,12 @@ export default function Header() {
                   )}
                 </DropdownMenuLabel>
                 <DropdownMenuSeparator />
+
                 <DropdownMenuItem asChild>
-                  <Link href="/profile">Profile</Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem asChild>
-                  <Link href="/dashboard">Dashboard</Link>
+                  <Link href="/dashboard">
+                    <LayoutDashboard />
+                    Dashboard
+                  </Link>
                 </DropdownMenuItem>
                 {/* Admin-only menu */}
                 {isAdmin && (
@@ -295,9 +302,11 @@ export default function Header() {
                 )}
                 <DropdownMenuSeparator />
                 <DropdownMenuItem
-                  className="text-red-500 cursor-pointer"
+                  className=" cursor-pointer"
                   onClick={handleLogout}
                 >
+                  {" "}
+                  <LogOutIcon />
                   Logout
                 </DropdownMenuItem>
               </DropdownMenuContent>
