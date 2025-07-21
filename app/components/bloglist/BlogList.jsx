@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { MessageCircle, Heart } from "lucide-react";
+import { MessageCircle, Heart, Eye } from "lucide-react";
 
 import AnimatedBlogImage from "./AnimatedBlogImage";
 
@@ -62,6 +62,11 @@ export default function BlogList({ blogs }) {
                       day: "numeric",
                     })
                   : ""}
+              </span>
+              {/* seen */}
+              <span className="flex items-center gap-1">
+                <span className="font-semibold">{blog.views ?? 0}</span>
+                <Eye className="w-4 h-4" />
               </span>
               {/* Likes */}
               <span className="flex items-center gap-1">
