@@ -55,6 +55,7 @@ export default async function SingleBlogPage({ params }) {
 
   return (
     <article className=" blogwrapper py-12 px-4 ">
+      <ViewTrackerWrapper slug={blog.slug} />
       <EditButton blog={blog} />
 
       {/* Title */}
@@ -72,7 +73,7 @@ export default async function SingleBlogPage({ params }) {
           })}
         </span>
         <span className="flex items-center gap-1">
-          <Eye className="w-4 h-4" /> <ViewTrackerWrapper slug={blog.slug} />
+          <Eye className="w-4 h-4" /> {blog.views || 0}
         </span>
         <span className="flex items-center gap-1">
           <Heart className="w-4 h-4" /> {blog.likesCount || 0}
