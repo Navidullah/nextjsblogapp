@@ -10,6 +10,7 @@ export async function POST(req, { params }) {
       { $inc: { views: 1 } },
       { new: true }
     );
+    console.log(blog.views);
     return NextResponse.json({ views: blog.views });
   } catch (error) {
     return NextResponse.json({ error: error.message }, { status: 500 });

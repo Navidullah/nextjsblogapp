@@ -1,5 +1,4 @@
 "use client";
-
 import { useEffect } from "react";
 
 export default function ViewTracker({ slug }) {
@@ -8,8 +7,14 @@ export default function ViewTracker({ slug }) {
 
     fetch(`/api/blogViews/${slug}/view`, {
       method: "POST",
-    });
+    })
+      .then((res) => {
+        if (!res.ok) {
+          console.error("Failed to increment views");
+        }
+      })
+      .catch(console.error);
   }, [slug]);
 
-  return null; // This component doesn't render anything
+  return null;
 }
