@@ -7,6 +7,9 @@ import EditButton from "@/app/components/blog/EditButton";
 import { getRelatedBlogs } from "@/app/api/getRelatedBlogs/route";
 import { FaLinkedin, FaWhatsapp } from "react-icons/fa";
 import { BsTwitterX } from "react-icons/bs";
+
+import ViewTrackerWrapper from "@/app/blogviews/[slug]/ViewTrackerWrapper";
+
 // import this at top
 
 // 👇 1. Generate SEO metadata
@@ -69,7 +72,7 @@ export default async function SingleBlogPage({ params }) {
           })}
         </span>
         <span className="flex items-center gap-1">
-          <Eye className="w-4 h-4" /> {blog.views || 0}
+          <Eye className="w-4 h-4" /> <ViewTrackerWrapper slug={blog.slug} />
         </span>
         <span className="flex items-center gap-1">
           <Heart className="w-4 h-4" /> {blog.likesCount || 0}
