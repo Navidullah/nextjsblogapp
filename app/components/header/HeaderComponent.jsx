@@ -246,10 +246,10 @@ export default function Header() {
           {/* Write Button */}
           <Button
             variant="outline"
-            className="flex items-center hover:cursor-pointer"
+            className="flex items-center rounded-full md:rounded-md hover:cursor-pointer"
             onClick={handleWrite}
           >
-            <SquarePen className="mr-1" size={18} />
+            <SquarePen className="mr-1 rounded-full md:rounded-md" size={18} />
             <span className="hidden sm:inline">Write</span>
           </Button>
           <ModeToggle />
