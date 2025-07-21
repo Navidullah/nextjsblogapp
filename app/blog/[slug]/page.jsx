@@ -51,11 +51,11 @@ export default async function SingleBlogPage({ params }) {
   );
 
   return (
-    <article className="wrapper py-12 px-4 max-w-3xl mx-auto">
+    <article className="wrapper py-12 px-4">
       <EditButton blog={blog} />
 
       {/* Title */}
-      <h1 className="text-3xl md:text-4xl text-center font-bold mb-4">
+      <h1 className="text-2xl md:text-4xl sm:text-3xl text-center font-bold mb-4">
         {blog.title}
       </h1>
 
