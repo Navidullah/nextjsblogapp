@@ -166,6 +166,9 @@ const categories = [
   "Travel",
   "Education",
   "Sports",
+  "Food",
+  "Politics",
+  "Automobiles",
 ];
 
 const TiptapEditor = dynamic(
