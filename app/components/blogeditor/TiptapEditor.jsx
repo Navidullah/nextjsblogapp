@@ -20,7 +20,7 @@ import css from "highlight.js/lib/languages/css";
 import html from "highlight.js/lib/languages/xml";
 import { all, createLowlight } from "lowlight";
 const lowlight = createLowlight(all);
-import "./styles.scss";
+//import "./styles.scss";
 
 // Register the languages you want
 lowlight.register("js", js);
