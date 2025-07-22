@@ -52,6 +52,7 @@ export default async function SingleBlogPage({ params }) {
   const readTime = Math.ceil(
     blog.description.replace(/<[^>]+>/g, "").split(" ").length / 200
   );
+  const enhanced = await enhanceBlogHtml(blog.description);
 
   return (
     <article className=" blogwrapper py-12 px-4 ">
@@ -114,8 +115,8 @@ export default async function SingleBlogPage({ params }) {
 
       {/* Blog content */}
       <div
-        className="tiptap max-w-none font-sans"
-        dangerouslySetInnerHTML={{ __html: blog.description }}
+        className=" max-w-none"
+        dangerouslySetInnerHTML={{ __html: enhanced }}
       />
 
       {/* Comment section */}
