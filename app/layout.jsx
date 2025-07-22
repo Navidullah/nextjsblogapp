@@ -3,6 +3,7 @@ import "./globals.css";
 import { Providers } from "./providers/Providers";
 import HeaderComponent from "./components/header/HeaderComponent";
 import Footer from "./components/footer/Footer";
+import "highlight.js/styles/github.css";
 
 const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
@@ -45,6 +46,21 @@ export default function RootLayout({ children }) {
           <main className="pt-[170px] sm:pt-[145px] wrapper">{children}</main>
           <Footer />
         </Providers>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+    function copyCode(button) {
+      const codeElement = button.closest(".code-wrapper")?.querySelector("pre code");
+      if (codeElement) {
+        navigator.clipboard.writeText(codeElement.innerText).then(() => {
+          button.innerText = "Copied!";
+          setTimeout(() => (button.innerText = "Copy"), 2000);
+        });
+      }
+    }
+  `,
+          }}
+        />
       </body>
     </html>
   );
