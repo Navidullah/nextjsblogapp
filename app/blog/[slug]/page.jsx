@@ -9,6 +9,7 @@ import { FaLinkedin, FaWhatsapp } from "react-icons/fa";
 import { BsTwitterX } from "react-icons/bs";
 
 import ViewTrackerWrapper from "@/app/blogviews/[slug]/ViewTrackerWrapper";
+import { enhanceBlogHtml } from "@/app/components/blogeditor/enhanceBlogHtml";
 
 // import this at top
 
