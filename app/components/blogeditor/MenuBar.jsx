@@ -19,6 +19,7 @@ import {
   Quote,
   UnlinkIcon,
   File as FileIcon,
+  CodeIcon,
 } from "lucide-react";
 import { BsParagraph } from "react-icons/bs";
 import React, { useRef } from "react";
@@ -238,6 +239,12 @@ const MenuBar = ({ editor }) => {
       onClick: () => editor.chain().focus().unsetLink().run(),
       pressed: false,
       name: "",
+    },
+    {
+      icon: <CodeIcon className="size-7" />,
+      onClick: () => editor.chain().focus().toggleCodeBlock().run(),
+      pressed: editor.isActive("codeBlock"),
+      name: "Code",
     },
   ];
 

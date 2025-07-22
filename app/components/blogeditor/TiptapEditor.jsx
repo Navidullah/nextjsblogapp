@@ -12,6 +12,21 @@ import React from "react";
 import MenuBar from "./MenuBar";
 import LoadingSpinner from "@/components/ui/LoadingSpinner";
 import Link from "@tiptap/extension-link";
+import { CodeBlockLowlight } from "@tiptap/extension-code-block-lowlight";
+//import { lowlight } from "lowlight/lib/core";
+import js from "highlight.js/lib/languages/javascript";
+import python from "highlight.js/lib/languages/python";
+import css from "highlight.js/lib/languages/css";
+import html from "highlight.js/lib/languages/xml";
+import { all, createLowlight } from "lowlight";
+const lowlight = createLowlight(all);
+import "./styles.scss";
+
+// Register the languages you want
+lowlight.register("js", js);
+lowlight.register("javascript", js);
+lowlight.register("python", python);
+lowlight.register("css", css);
 
 const TiptapEditor = ({ value, onChange }) => {
   const editor = useEditor({
@@ -22,6 +37,9 @@ const TiptapEditor = ({ value, onChange }) => {
       TextStyle,
       Blockquote,
       Image,
+      CodeBlockLowlight.configure({
+        lowlight,
+      }),
       Link.configure({
         HTMLAttributes: {
           class: "text-blue-500 font-semibold hover:underline",
