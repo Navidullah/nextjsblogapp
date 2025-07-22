@@ -171,7 +171,7 @@
     height: 0;
     pointer-events: none;
   }
-  .code-wrapper {
+  .tiptap .code-wrapper {
     border: 1px solid #333;
     border-radius: 6px;
     margin: 1rem 0;
@@ -180,7 +180,7 @@
     color: white;
   }
 
-  .code-header {
+  .tiptap .code-header {
     background: #111;
     color: #eee;
     padding: 0.25rem 0.75rem;
@@ -191,12 +191,12 @@
     font-family: monospace;
   }
 
-  .code-language {
+  .tiptap .code-language {
     font-weight: bold;
     text-transform: capitalize;
   }
 
-  .copy-button {
+  .tiptap .copy-button {
     background: transparent;
     color: #ccc;
     border: none;
@@ -204,7 +204,7 @@
     font-size: 0.75rem;
   }
 
-  .copy-button:hover {
+  .tiptap .copy-button:hover {
     color: white;
   }
 }
