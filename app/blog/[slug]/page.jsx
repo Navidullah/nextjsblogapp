@@ -116,7 +116,7 @@ export default async function SingleBlogPage({ params }) {
 
       {/* Blog content */}
       <div
-        className="tiptap max-w-none"
+        className="tiptap font-sans max-w-none"
         dangerouslySetInnerHTML={{ __html: enhanced }}
       />
 
